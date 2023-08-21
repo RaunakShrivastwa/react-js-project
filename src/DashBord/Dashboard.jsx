@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import LineChartComponent from './LineChartComponent'
-import PieChartComponent from './PieChartComponent'
-import SidebarComponent from './SidebarComponent'
-import SummaryComponent from './SummaryComponent'
-import NotificationComponent from './NotificationComponent'
+import LineChartComponent from '../LineChart/LineChartComponent'
+import PieChartComponent from '../PieChart/PieChartComponent'
+import SidebarComponent from '../SideBar/SidebarComponent'
+import SummaryComponent from '../Summary/SummaryComponent'
+import NotificationComponent from '../NotificationPage/NotificationComponent'
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Dashboard() {

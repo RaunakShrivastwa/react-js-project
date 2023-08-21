@@ -1,5 +1,5 @@
-import './App.css';
-import Dashboard from './Dashboard';
+import '../src/StaticReactComponent/CSS/App.css';
+import Dashboard from './DashBord/Dashboard';
 
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Example from './Example';
