@@ -1,0 +1,22 @@
+.Delete{
+    color: red;
+    cursor: pointer;
+}
+
+.edit{
+    color: cyan;
+    cursor: pointer;
+}
+.Delete:hover{
+    font-size: xx-large;
+    color: green;
+}
+
+.edit:hover{
+    font-size: xx-large;
+    color: rgb(41, 17, 224);
+}
+
+.fa-solid{
+    font-size: x-large;
+}

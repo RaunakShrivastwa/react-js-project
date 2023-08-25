@@ -18,7 +18,6 @@ function Dashboard() {
    
   let l=0;
   useEffect(()=>{
-    loadUser()
     if(l===0){  
         l+=1;
         toast.success(`Congractulation You LogedIn as Admin😎😎`, { 
@@ -33,11 +32,6 @@ function Dashboard() {
           })
         }
   },[])
-  
-  const loadUser = async () => {
-    const result = await axios.get(`http://localhost:9096/getSingle/${id}`);
-    setStudent(result.data);
-  };
 
     return (
         <>

@@ -1,45 +1,50 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Await, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom'
 
-function AddCourse() {
-  let navigate = useNavigate();
-  const [course, setCourse] = useState({
-    title: '',
-    deadline: '',
-    score: '',
-    name: ''
-  });
+function EditCourse() {
 
-  const { title, deadline, score, name } = course;
-  const onInputChange = (e) => {
-    setCourse({ ...course, [e.target.name]: e.target.value });
+    const { id }=useParams();
+    let navigate=useNavigate();
+    const [course,setCourse]=useState({
+        title:'',
+        deadline:'',
+        name:'',
+        score:''
+    });
 
-  }
+    useEffect(() => {
+        loadUser();
+      }, []);
 
-  const onsubmitData = async (e) => {
-    e.preventDefault();
-    await axios.post("http://localhost:9096/course", course);
-    const data = {
-      title: '',
-      deadline: '',
-      score: '',
-      name: ''
+    const loadUser= async ()=>{
+       const result= await axios.get(`http://localhost:9096/getSingle/${id}`)
+       setCourse(result.data);
+    };
+    console.log(course)
+    const {title,deadline,name,score}=course;
+
+
+
+    const onsubmitData= async (e)=>{
+        e.preventDefault();
+        await axios.put(`http://localhost:9096/updateCourse/${id}`,course);
+        navigate("/viewCourse");
     }
-    setCourse(data);
-    navigate('/addCourse')
-  } 
 
+    const onInputChange=(e)=>{
+        setCourse({ ...course, [e.target.name]: e.target.value });
+    }
   return (
-
-    <>
-      <div className='container-fluied bg-dark'>
+   
+    <div className='container-fluied bg-dark'>
         <div> <i title='Go back' onClick={() => navigate(-1)} class="fa-solid fa-arrow-left p-3 text-danger"></i></div>
         <div className='text-center'>
           <div className='d-flex justify-content-md-around align-items-md-center main'>
 
             <form className=' shadow mt-4  list' onSubmit={(e) => onsubmitData(e)}>
-              <h3 className='text-white head p-2'><i class="fa fa-plus m-md-2"></i>ADD COURSE</h3>
+              <h3 className='text-white head bg-primary p-2'><i class="fa fa-refresh m-md-2"></i>UPDATE COURSE</h3>
               <div className='p-4 align-item-center bg-dark'>
 
                 {/* for the Title */}
@@ -82,9 +87,7 @@ function AddCourse() {
           </div>
         </div>
       </div>
-
-    </>
   )
 }
 
-export default AddCourse
+export default EditCourse

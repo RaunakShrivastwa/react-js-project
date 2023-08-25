@@ -2,9 +2,11 @@ import '../src/StaticReactComponent/CSS/App.css';
 import Dashboard from './DashBord/Dashboard';
 
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import Example from './Example';
-import { ToastContainer } from 'react-toastify';
 import AddCourse from './course/AddCourse';
+import ViewCourse from './course/ShowCourse';
+import EditCourse from './course/EditCourse';
+
+
 // import Demo from './Demo';
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
             {/* <Route exact path='/' Component={Demo} /> */}
             <Route exact path='/:id' Component={Dashboard}/>
             <Route exact path='/addCourse' Component={AddCourse}/>
+            <Route exact path='/viewCourse' Component={ViewCourse}/>
+            <Route exact path='/editPage/:id' Component={EditCourse}/>
 
            
         </Routes>
