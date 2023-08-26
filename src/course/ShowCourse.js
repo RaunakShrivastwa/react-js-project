@@ -4,40 +4,47 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import '../StaticReactComponent/CSS/Course.css'
 import { useNavigate } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 
 
 function ViewCourse() {
-    const [user, setUser] = useState({
-        title: "",
-        deadline: "",
-        score: "",
-        name: ""
-    });
-        let navigate=useNavigate();
+    const [user, setUser] = useState([])
+
     useEffect(() => {
         loadUser();
     }, [])
+
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const itemsPerPage = 13; // Number of items to display per page
+    const offset = currentPage * itemsPerPage;
+
+    const displayedUsers = user.slice(offset, offset + itemsPerPage)
+
+
+    let navigate = useNavigate();
+
 
     const loadUser = async () => {
         const result = await axios.get(`http://localhost:9096/course`)
         setUser(result.data)
     }
 
-    const deleteData=async (e)=>{  
-            let id=e.target.id;
-            await axios.delete(`http://localhost:9096/deleteCourse/${id}`);
-            window.location.href='/viewCourse'
+    const deleteData = async (e) => {
+        let id = e.target.id;
+        await axios.delete(`http://localhost:9096/deleteCourse/${id}`);
+        window.location.href = '/viewCourse'
     }
 
-    const UpdateData=(id)=>{
-      navigate(`/editPage/${id}`)
+    const UpdateData = (id) => {
+        navigate(`/editPage/${id}`)
     }
     console.log(user)
     return (
         <div>
             <div className='container-fluied' style={{ height: '100vh' }}>
-            <div> <i title='Go back' onClick={()=>navigate(-1)} class="fa-solid fa-arrow-left p-3"></i></div>
+                <div> <i title='Go back' onClick={() => navigate(-1)} class="fa-solid fa-arrow-left p-3"></i></div>
                 <div className='d-flex justify-content-center'>
                     <strong className='p-3'>All Course</strong>
                 </div>
@@ -56,7 +63,7 @@ function ViewCourse() {
                     </thead>
                     <tbody>
                         {user && user.length > 0 ? (
-                            user.map((data) => (
+                            displayedUsers.map((data) => (
                                 <tr key={data.id} style={{ border: 'green' }}>
                                     <th scope="row">{data.id}</th>
                                     <td>{data.title}</td>
@@ -65,8 +72,8 @@ function ViewCourse() {
                                     <td>{data.name}</td>
                                     <td>
                                         <div className='d-flex justify-content-between'>
-                                            <i title='Click to Delete Course' id={data.id} class="Delete fa-solid fa-trash delete" onClick={(e)=>deleteData(e)}></i>
-                                            <i title='Click to edit Course text-primary' class=" edit fa-regular fa-pen-to-square" onClick={()=>UpdateData(data.id)}></i>
+                                            <i title='Click to Delete Course' id={data.id} class="Delete fa-solid fa-trash delete" onClick={(e) => deleteData(e)}></i>
+                                            <i title='Click to edit Course text-primary' class=" edit fa-regular fa-pen-to-square" onClick={() => UpdateData(data.id)}></i>
                                         </div>
                                     </td>
                                 </tr>
@@ -78,6 +85,15 @@ function ViewCourse() {
                         )}
                     </tbody>
                 </table>
+                <ReactPaginate
+                    previousLabel={'←'}
+                    nextLabel={'→'}
+                    pageCount={Math.ceil(user.length / itemsPerPage)}
+                    onPageChange={(selectedPage) => setCurrentPage(selectedPage.selected)}
+                    containerClassName={'pagination'}
+                    activeClassName={'active'}
+                />
+
 
             </div>
         </div>

@@ -12,12 +12,11 @@ import 'react-toastify/dist/ReactToastify.css';
 function Dashboard() {
     const { id } = useParams()
     const [student, setStudent] = useState([]);
-    // const studentData = axios(`http://localhost:9096/getSingle/${id}`).then(result => {
-    //     setStudent(result.data);
-    // })
+    console.log("profile user ",id)
    
   let l=0;
   useEffect(()=>{
+    loadUser();
     if(l===0){  
         l+=1;
         toast.success(`Congractulation You LogedIn as Admin😎😎`, { 
@@ -32,7 +31,11 @@ function Dashboard() {
           })
         }
   },[])
-
+   const loadUser= async ()=>{
+    const studentData = await axios(`http://localhost:9096/getStudentData/${id}`).then(result => {
+        setStudent(result.data);
+    })
+   }
     return (
         <>
             <body id="page-top">

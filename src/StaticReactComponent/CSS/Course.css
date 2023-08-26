@@ -20,3 +20,29 @@
 .fa-solid{
     font-size: x-large;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .pagination a {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.2rem;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .pagination a:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .pagination .active a {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
