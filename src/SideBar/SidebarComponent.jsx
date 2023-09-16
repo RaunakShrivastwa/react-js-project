@@ -117,7 +117,26 @@ function SidebarComponent() {
                     </div>
                 </li>
 
-                {/* <!-- Nav Item - Tables --> */}
+                {/* for the chapter */}
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseChapter"
+                        aria-expanded="true" aria-controls="collapseCourse">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Chapter</span>
+                    </a>
+
+                    <div id="collapseChapter" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Chapter Related:</h6>
+                            <Link class="collapse-item" to="/addChapter">Add Chapter</Link>
+                            <Link class="collapse-item" to="/viewChapter">View Chapter</Link>                           
+                        </div>
+                    </div>
+                </li>
+
+
+                {/* for the course */}
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCourse"
                         aria-expanded="true" aria-controls="collapseCourse">
@@ -129,8 +148,7 @@ function SidebarComponent() {
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Course Related:</h6>
                             <Link class="collapse-item" to="/addCourse">Add Course</Link>
-                            <Link class="collapse-item" to="/viewCourse">View Course</Link>
-                            <Link class="collapse-item" to="/updateCourse">Update Course</Link>
+                            <Link class="collapse-item" to="/viewCourse">View Course</Link>                           
                         </div>
                     </div>
                 </li>
