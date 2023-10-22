@@ -28,7 +28,7 @@ function App() {
        <Router>
 
         <Routes>
-            <Route exact path='/jitendra' Component={Nname}/>
+            <Route exact path='/' Component={Nname}/>
             {/* <Route exact path='/' Component={Demo} /> */}
             {/* <Route exact path='/:id' Component={Dashboard}/>
             <Route exact path='/addCourse' Component={AddCourse}/>
