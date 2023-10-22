@@ -8,7 +8,7 @@ import EditCourse from './course/EditCourse';
 import EditChapter from './Chapter/EditChapter'
 import AddChapter from './Chapter/AddChapter'
 import ViewChapter from './Chapter/ViewChapter'
-
+import message from './Chapter/message';
 
 // import Demo from './Demo';
 function App() {
@@ -27,6 +27,9 @@ function App() {
             <Route exact path='/editChapter/:id' Component={EditChapter}/>
             <Route exact path='/addChapter' Component={AddChapter}/>
             <Route exact path='/viewChapter' Component={ViewChapter}/>
+            <Route exact path='/msg' Component={message}/>
+
+
 
            
         </Routes>
