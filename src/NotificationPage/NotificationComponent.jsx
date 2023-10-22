@@ -10,7 +10,7 @@ function NotificationComponent() {
 
     //  for the gett All Products
     const loadUser = async () => {
-        const result = await axios.get("http://localhost:9096/getNotification");
+        const result = await axios.get("https://ninjassite-production.up.railway.app/getNotification");
         setData(result.data);
     }
 

@@ -10,8 +10,8 @@ function SummaryComponent() {
     }, []);
 
     const loadUser = async () => {
-        const monthInfo = await axios.get("http://localhost:9096/getMonthlyPay");
-        const yearInfo = await axios.get("http://localhost:9096/getYearlyPay");
+        const monthInfo = await axios.get("https://ninjassite-production.up.railway.app/getMonthlyPay");
+        const yearInfo = await axios.get("https://ninjassite-production.up.railway.app/getYearlyPay");
         setMonthData(monthInfo.data);
         setYearData(yearInfo.data);
     }

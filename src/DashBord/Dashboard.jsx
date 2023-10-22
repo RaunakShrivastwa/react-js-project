@@ -32,7 +32,7 @@ function Dashboard() {
         }
   },[])
    const loadUser= async ()=>{
-    const studentData = await axios(`http://localhost:9096/getStudentData/${id}`).then(result => {
+    const studentData = await axios(`https://ninjassite-production.up.railway.app/getStudentData/${id}`).then(result => {
         setStudent(result.data);
     })
    }

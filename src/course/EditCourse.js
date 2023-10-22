@@ -19,7 +19,7 @@ function EditCourse() {
       }, []);
 
     const loadUser= async ()=>{
-       const result= await axios.get(`http://localhost:9096/getSingle/${id}`)
+       const result= await axios.get(`https://ninjassite-production.up.railway.app/getSingle/${id}`)
        setCourse(result.data);
     };
     console.log(course)
@@ -29,7 +29,7 @@ function EditCourse() {
 
     const onsubmitData= async (e)=>{
         e.preventDefault();
-        await axios.put(`http://localhost:9096/updateCourse/${id}`,course);
+        await axios.put(`https://ninjassite-production.up.railway.app/updateCourse/${id}`,course);
         navigate("/viewCourse");
     }
 

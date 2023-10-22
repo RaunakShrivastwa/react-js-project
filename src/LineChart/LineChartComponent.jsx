@@ -12,7 +12,7 @@ function LineChartComponent() {
 
     //  for the gett All Products
     const loadUser = async () => {
-        const result = await axios.get("http://localhost:9096/getPay");
+        const result = await axios.get("https://ninjassite-production.up.railway.app/getPay");
         setData(result.data);
     }
 

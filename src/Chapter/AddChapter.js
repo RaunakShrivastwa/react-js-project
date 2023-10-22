@@ -14,7 +14,7 @@ function AddChapter() {
 
   const onsubmitData = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:9096/chapter", Chapter);
+    await axios.post("https://ninjassite-production.up.railway.app/chapter", Chapter);
     const data = {
       courseName: '',
       content: '',

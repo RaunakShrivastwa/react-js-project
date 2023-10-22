@@ -19,7 +19,7 @@ function AddCourse() {
 
   const onsubmitData = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:9096/course", course);
+    await axios.post("https://ninjassite-production.up.railway.app/course", course);
     const data = {
       title: '',
       deadline: '',

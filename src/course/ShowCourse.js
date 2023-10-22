@@ -32,25 +32,25 @@ function ViewCourse() {
 
 
     const loadUser = async () => {
-        const result = await axios.get(`http://localhost:9096/course`)
+        const result = await axios.get(`https://ninjassite-production.up.railway.app/course`)
         setUser(result.data)
     }
 
     const loadChapter = async (e) => {
         
-        const result = await axios.get(`http://localhost:9096/course/${e.target.id}`)
+        const result = await axios.get(`https://ninjassite-production.up.railway.app/course/${e.target.id}`)
         setChapter(result.data)
     }
 
     const loadShubTopic = async (e) => {     
-        const result = await axios.get(`http://localhost:9096/tag/${e.target.id}`)
+        const result = await axios.get(`https://ninjassite-production.up.railway.app/tag/${e.target.id}`)
         setSubTopic(result.data)
     }
 
      console.log("Your chapter data ",subTopic)
     const deleteData = async (e) => {
         let id = e.target.id;
-        await axios.delete(`http://localhost:9096/deleteCourse/${id}`);
+        await axios.delete(`https://ninjassite-production.up.railway.app/deleteCourse/${id}`);
         window.location.href = '/viewCourse'
     }
 

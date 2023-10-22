@@ -11,7 +11,7 @@ function PieChartComponent() {
 
     //  for the gett All Products
     const loadUser = async () => {
-        const result = await axios.get("http://localhost:9096/getIncome");
+        const result = await axios.get("https://ninjassite-production.up.railway.app/getIncome");
         setData(result.data);
     }
 

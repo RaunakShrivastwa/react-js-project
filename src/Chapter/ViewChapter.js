@@ -30,17 +30,17 @@ function ViewsubTopic() {
 
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:9096/chapter`)
+    const result = await axios.get(`https://ninjassite-production.up.railway.app/chapter`)
     setUser(result.data)
   }
 
   const loadShubTopic = async (e) => {
-    const result = await axios.get(`http://localhost:9096/tag/${e.target.id}`)
+    const result = await axios.get(`https://ninjassite-production.up.railway.app/tag/${e.target.id}`)
     setsubTopic(result.data)
   }
   const deleteData = async (e) => {
     let id = e.target.id;
-    await axios.delete(`http://localhost:9096/delete/${id}`);
+    await axios.delete(`https://ninjassite-production.up.railway.app/delete/${id}`);
     window.location.href = '/viewCourse'
   }
 
