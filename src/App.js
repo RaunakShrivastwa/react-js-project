@@ -30,14 +30,14 @@ function App() {
         <Routes>
             <Route exact path='/' Component={Nname}/>
             {/* <Route exact path='/' Component={Demo} /> */}
-            {/* <Route exact path='/:id' Component={Dashboard}/>
+            <Route exact path='/:id' Component={Dashboard}/>
             <Route exact path='/addCourse' Component={AddCourse}/>
             <Route exact path='/viewCourse' Component={ViewCourse}/>
             <Route exact path='/editPage/:id' Component={EditCourse}/>
 
             <Route exact path='/editChapter/:id' Component={EditChapter}/>
             <Route exact path='/addChapter' Component={AddChapter}/>
-            <Route exact path='/viewChapter' Component={ViewChapter}/> */}
+            <Route exact path='/viewChapter' Component={ViewChapter}/>
            
 
 
